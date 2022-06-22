@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button  color="light" class="backbtn" routerLink="/tabs/tab1" routerDirection="back">
+        <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+     <ion-title class="ion-text-left">Profile</ion-title>
+     <ion-buttons slot="end">
+       <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+       </ion-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container">
+    <div class="cover-photo">
+<img src="{{ customerData.avatar_url }}"  class="profile"/>       </div>
+      <div class="profile-name">{{ customerData.billing.first_name}} {{ customerData.billing.last_name}}</div>
+    <p class="about">Username: {{ customerData.username}}<br>Email:  {{ customerData.email}}</p>
+    <button class="msg-btn"  (click)="showModal()" >Shipping</button>
+    <button class="follow-btn" >Billing</button>
+   
+  </div>
+  
+</ion-content>
+
+
+

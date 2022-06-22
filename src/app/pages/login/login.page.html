@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-toolbar color="dark">
+	  <ion-buttons slot="start">
+		<ion-button  color="light" class="backbtn" routerLink="/tabs/tab1" routerDirection="back">
+		  <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+		</ion-button>
+	  </ion-buttons>
+	   <ion-title class="ion-text-left">Login</ion-title>
+	</ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+
+	<div class="login-box">
+		<div class="login-snip">
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+			<div class="login-space">
+				<div class="login">
+			<form method="post" class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+			  <span id="reauth-email" class="reauth-email"></span>
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input id="user"   name="email" type="text" class="input"  placeholder="Enter your username" ngModel>
+					</div>
+					<div class="group">
+						<label for="pass"  class="label">Password</label>
+						<input id="pass"  name="password" type="password" class="input" data-type="password" placeholder="Enter your password" ngModel>
+					</div>
+					<div class="group">
+						<input id="check" type="checkbox" class="check" checked>
+						<label for="check"><span class="icon"></span> Keep me Signed in</label>
+					</div>
+					<div class="group">
+						<input type="submit"  [disabled]="loginForm.invalid || loginForm.pending" class="button" value="Sign In">
+					</div>
+					<div class="hr"></div>
+					<div class="group">
+						<input type="button" (click)="openPwReset()" class="button"  value="Forgot Password?">
+					</div>
+			</form>
+				</div>
+	
+	
+				<div class="sign-up-form" *ngIf="!(user | async); else welcome" >
+			<form method="post" [formGroup]="userForm" (ngSubmit)="login()">
+	
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input id="user" formControlName="username" type="text" class="input" placeholder="Create your Username">
+					</div>
+			<div class="group">
+						<label for="pass" class="label">Email Address</label>
+						<input id="pass" formControlName="email" type="text" class="input" placeholder="Enter your email address">
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" formControlName="password" type="password" class="input" data-type="password" placeholder="Create your password">
+					</div>
+					
+					<div class="group">
+						<input type="button" [disabled]="!userForm.valid" class="button" (click)="signUp()" value="Sign Up">
+					</div>
+					<div class="hr"></div>
+					<div class="foot">
+						<label for="tab-1">Already Member?</label>
+					</div>
+			</form>
+				</div>
+			</div>
+		</div>
+	</div>   
+	
+	
+	
+  
+  
+  </ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button  color="light" class="backbtn" routerLink="/tabs/tab1" routerDirection="back">
+        <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+     <ion-title class="ion-text-left">Order History</ion-title>
+     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+      <ion-list>
+          <ion-item *ngFor="let order of orders">
+              <ion-icon name="mail-open" slot="start"></ion-icon>
+              <ion-label>
+                  <p>Order ID: #{{order.id}}</p>
+                  <p>Price: ${{ order.total }}USD </p>
+              </ion-label>
+          </ion-item>
+        </ion-list>
+  </div>
+
+</ion-content>

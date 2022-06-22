@@ -1,0 +1,24 @@
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>Shipping Details</ion-title>
+      <ion-icon name='close-circle' (click)='dismiss()' style='float: right;'></ion-icon>  
+
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content *ngIf="customerData.shipping">
+<ion-item routerLink="/about">
+  <ion-icon name="person-outline"></ion-icon> &nbsp; Name: {{ customerData.shipping.first_name}} {{ customerData.shipping.last_name}}
+        </ion-item>
+        <ion-item routerLink="/faq">
+          <ion-icon name="airplane-outline"></ion-icon> &nbsp; Address: {{ customerData.shipping.address_1}}
+        </ion-item>
+        
+        <ion-item routerLink="/contact">
+          <ion-icon name="business-outline"></ion-icon> &nbsp; City: {{ customerData.shipping.city}}
+        </ion-item>
+        <ion-item routerLink="/orders">
+          <ion-icon name="earth-outline"></ion-icon> &nbsp; State/Town/Postal Code: {{ customerData.shipping.state}} , {{ customerData.shipping.country}} , {{ customerData.shipping.postcode}}
+        </ion-item>
+        
+</ion-content>
